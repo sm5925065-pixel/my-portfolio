@@ -137,3 +137,31 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
 }
 
 @keyframes fillBar { 100% { transform: scaleX(1); } }
+/* ስክሪኑ ከ 768px ካነሰ (ለሞባይል) የሚሰራ */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        display: none; /* ሜኑው በሞባይል እንዲደበቅ (ለጊዜው) */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem; /* የጽሁፍ መጠኑን መቀነስ */
+    }
+
+    .profile-img {
+        width: 180px; /* የፎቶውን መጠን ማስተካከል */
+        height: 180px;
+    }
+
+    .skills-container, .project-grid {
+        grid-template-columns: 1fr; /* ክፍሎቹ አንዱ ከሌላው በታች እንዲሆኑ */
+        padding: 0 20px;
+    }
+
+    .skill-item {
+        width: 100%;
+    }
+}
