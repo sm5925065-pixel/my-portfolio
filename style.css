@@ -21,7 +21,18 @@ body { background-color: var(--dark-bg); color: var(--text-white); scroll-behavi
 .nav-links a:hover { color: var(--primary-yellow); }
 
 /* Hero */
-.hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center;background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('bg.jpg');
+.hero {height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* አዲሱን bg.jpg ምስል እዚህ እንጠቀማለን */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('bg.jpg'); 
+    background-size: cover;       /* ምስሉ ሙሉ ስክሪኑን እንዲሸፍን */
+    background-position: center;   /* ምስሉን መሃል ላይ ያደርገዋል */
+    background-attachment: fixed; /* Parallax effect እንዲኖረው */;
     background-size: cover;
     background-position: center;
     background-attachment: fixed; }
