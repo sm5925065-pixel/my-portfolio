@@ -21,11 +21,42 @@ body { background-color: var(--dark-bg); color: var(--text-white); scroll-behavi
 .nav-links a:hover { color: var(--primary-yellow); }
 
 /* Hero */
-.hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; }
+.hero { height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center;background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; }
 .profile-img {
-    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
-    border: 5px solid var(--primary-yellow); box-shadow: 0 10px 30px rgba(255, 219, 17, 0.2);
-    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--primary-yellow);
+    
+    /* አኒሜሽኑን እዚህ እንጀምራለን */
+    animation: float 3s ease-in-out infinite, glow 2s infinite alternate;
+    box-shadow: 0 0 20px rgba(255, 219, 17, 0.3);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+/* ማውዝ ሲያርፍበት (Hover) እንዲሰፋ */
+.profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: #ffffff;
+}
+
+/* ወደ ላይና ወደ ታች የመንሳፈፍ አኒሜሽን */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* በዙሪያው ያለው ቢጫ መስመር እንዲበራና እንዲጠፋ (Glow) */
+@keyframes glow {
+    from { box-shadow: 0 0 10px rgba(255, 219, 17, 0.4); }
+    to { box-shadow: 0 0 30px rgba(255, 219, 17, 0.8); }
+}
 }
 .highlight { color: var(--primary-yellow); }
 
