@@ -166,31 +166,56 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
    3D WORK SHOWCASE PAGE STYLES (አዲሱ ክፍል)
    ========================================== */
    
-/* እዚህ ጋር ኮዱን ቀጥል... */
 /* ==========================================
-   3D WORK SHOWCASE PAGE STYLES
+   3D CAROUSEL ANIMATION (የተስተካከለ)
    ========================================== */
 
-.work-page {
-    background: #000;
-    overflow-x: hidden;
-}
-
-/* Class ስም በቁጥር ስለማይጀምር 'gallery-3d' ብለን ቀይረነዋል */
-/* --- አዲሱ የካርዶች አቀማመጥ ማስተካከያ --- */
-.gallery-3d {
+.carousel-container {
+    perspective: 1200px; /* ለጥልቀት እይታ */
+    height: 500px;
     display: flex;
-    flex-direction: row; /* ወደ ጎን እንዲሰለፉ ያደርጋል */
-    flex-wrap: wrap;     /* ስክሪኑ ሲጠበብ ወደ ታች እንዲወርዱ */
-    justify-content: center; /* መሃል ላይ እንዲሆኑ */
-    gap: 30px;           /* በካርዶቹ መካከል ያለ ርቀት */
-    padding: 100px 5%;   
-    perspective: 1000px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 50px;
 }
 
-/* ካርዶቹ በስፋት ተለጥጠው እንዳይወርዱ ስፋታቸውን መወሰን */
-.work-card {
-    width: 300px;        /* ስፋታቸውን እዚህ መወሰን ወደ ጎን እንዲሆኑ ይረዳል */
+.carousel-3d {
+    width: 300px;
     height: 400px;
-    flex: 0 1 auto;      /* ካርዶቹ እንዳይለጠጡ ይከላከላል */
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCarousel 20s infinite linear; /* በራሱ እንዲዞር */
+}
+
+/* 3 ካርዶች ካሉህ በ 120 ዲግሪ ልዩነት ይደረደራሉ */
+.carousel-3d .work-card:nth-child(1) { transform: rotateY(0deg) translateZ(350px); }
+.carousel-3d .work-card:nth-child(2) { transform: rotateY(120deg) translateZ(350px); }
+.carousel-3d .work-card:nth-child(3) { transform: rotateY(240deg) translateZ(350px); }
+
+.work-card {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    backface-visibility: hidden; /* የጀርባው ክፍል እንዳይታይ */
+    transition: transform 0.5s ease;
+}
+
+.work-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid var(--primary-yellow);
+}
+
+/* የመዞሪያ አኒሜሽን */
+@keyframes rotateCarousel {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
+
+/* ማውዝ ሲያርፍበት እንዲቆም */
+.carousel-3d:hover {
+    animation-play-state: paused;
 }
