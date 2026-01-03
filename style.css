@@ -162,3 +162,55 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
         display: flex;
     }
 }
+/* ==========================================
+   3D WORK SHOWCASE PAGE STYLES (አዲሱ ክፍል)
+   ========================================== */
+   
+/* እዚህ ጋር ኮዱን ቀጥል... */
+.work-page {
+    background: #000;
+    overflow-x: hidden;
+}
+
+.3d-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px;
+    perspective: 1000px; /* ለ3ዲ እይታ */
+}
+
+.work-card {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.work-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid #ffcc00;
+}
+
+/* 3D ማሽከርከሪያ አኒሜሽን */
+.work-card:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 204, 0, 0.4);
+}
+
+.work-info {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    transform: translateZ(50px); /* ጽሁፉን ወደ ፊት ያመጣዋል */
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 10px;
+    border-radius: 5px;
+}
