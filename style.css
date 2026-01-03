@@ -177,50 +177,20 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
 }
 
 /* Class ስም በቁጥር ስለማይጀምር 'gallery-3d' ብለን ቀይረነዋል */
+/* --- አዲሱ የካርዶች አቀማመጥ ማስተካከያ --- */
 .gallery-3d {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    padding: 100px 50px;
-    perspective: 1000px; /* ለጥልቀት እይታ */
+    flex-direction: row; /* ወደ ጎን እንዲሰለፉ ያደርጋል */
+    flex-wrap: wrap;     /* ስክሪኑ ሲጠበብ ወደ ታች እንዲወርዱ */
+    justify-content: center; /* መሃል ላይ እንዲሆኑ */
+    gap: 30px;           /* በካርዶቹ መካከል ያለ ርቀት */
+    padding: 100px 5%;   
+    perspective: 1000px;
 }
 
+/* ካርዶቹ በስፋት ተለጥጠው እንዳይወርዱ ስፋታቸውን መወሰን */
 .work-card {
-    width: 300px;
+    width: 300px;        /* ስፋታቸውን እዚህ መወሰን ወደ ጎን እንዲሆኑ ይረዳል */
     height: 400px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    background: var(--card-bg);
-    border-radius: 15px;
-}
-
-.work-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    border: 2px solid var(--primary-yellow);
-}
-
-/* 3D Tilt Effect */
-.work-card:hover {
-    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
-    box-shadow: 0 20px 40px rgba(255, 219, 17, 0.3);
-}
-
-.work-info {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    right: 20px;
-    transform: translateZ(50px); /* ጽሁፉን ወደ ፊት "Pop" እንዲል ያደርገዋል */
-    color: white;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 3px solid var(--primary-yellow);
-    pointer-events: none;
+    flex: 0 1 auto;      /* ካርዶቹ እንዳይለጠጡ ይከላከላል */
 }
