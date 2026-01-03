@@ -167,18 +167,23 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
    ========================================== */
    
 /* እዚህ ጋር ኮዱን ቀጥል... */
+/* ==========================================
+   3D WORK SHOWCASE PAGE STYLES
+   ========================================== */
+
 .work-page {
     background: #000;
     overflow-x: hidden;
 }
 
-.3d-gallery {
+/* Class ስም በቁጥር ስለማይጀምር 'gallery-3d' ብለን ቀይረነዋል */
+.gallery-3d {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
-    padding: 50px;
-    perspective: 1000px; /* ለ3ዲ እይታ */
+    padding: 100px 50px;
+    perspective: 1000px; /* ለጥልቀት እይታ */
 }
 
 .work-card {
@@ -188,6 +193,8 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    background: var(--card-bg);
+    border-radius: 15px;
 }
 
 .work-card img {
@@ -195,22 +202,25 @@ footer { padding: 40px; text-align: center; border-top: 1px solid #222; }
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
-    border: 2px solid #ffcc00;
+    border: 2px solid var(--primary-yellow);
 }
 
-/* 3D ማሽከርከሪያ አኒሜሽን */
+/* 3D Tilt Effect */
 .work-card:hover {
-    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
-    box-shadow: 0 20px 40px rgba(255, 204, 0, 0.4);
+    transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 219, 17, 0.3);
 }
 
 .work-info {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    transform: translateZ(50px); /* ጽሁፉን ወደ ፊት ያመጣዋል */
+    right: 20px;
+    transform: translateZ(50px); /* ጽሁፉን ወደ ፊት "Pop" እንዲል ያደርገዋል */
     color: white;
-    background: rgba(0,0,0,0.7);
-    padding: 10px;
-    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid var(--primary-yellow);
+    pointer-events: none;
 }
